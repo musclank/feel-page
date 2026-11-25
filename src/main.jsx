@@ -7,7 +7,7 @@ const STORAGE_KEY = 'feel-page-draft-v1';
 function getSharedPage() {
   try {
     const raw = new URLSearchParams(window.location.search).get('page');
-    return raw ? JSON.parse(decodeURIComponent(raw)) : null;
+    return raw ? JSON.parse(raw) : null;
   } catch { return null; }
 }
 function App() {
