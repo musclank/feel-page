@@ -23,3 +23,24 @@ html{width:100%;overflow-x:hidden}body{width:100%;overflow-x:hidden}#root{width:
 .editor-card .section-toggle input[type=checkbox]:checked{background:#274b3d;border-color:#5c9c80}
 .editor-card .section-toggle input[type=checkbox]:checked::after{transform:translateX(15px);background:#a1f6d6}
 @media(max-width:700px){.section-controls{padding:10px}.section-controls-head b{font-size:10px}}
+
+/* Section ordering controls: compact, touch-friendly and responsive. */
+.section-order-head{display:flex;justify-content:space-between;align-items:center;padding:12px 2px 8px;border-bottom:1px solid #222733;margin-top:8px}
+.section-order-head b{font-size:10px;color:#dce3ec}
+.section-order-head span{font:8px 'DM Mono',monospace;color:#687180;letter-spacing:.06em}
+.section-order-row{display:flex;align-items:center;gap:10px;min-width:0;padding:9px 2px;border-bottom:1px solid #1d222c}
+.section-order-row:last-child{border-bottom:0}
+.order-number{font:9px 'DM Mono',monospace;color:#697382;flex:0 0 22px}
+.order-name{font-size:10px;color:#aeb6c3;flex:1;min-width:0;overflow-wrap:anywhere}
+.order-actions{display:flex;gap:5px;flex:0 0 auto}
+.order-actions button{width:29px;height:29px;border:1px solid #303642;border-radius:7px;background:#151a23;color:#a1f6d6;font-size:15px;line-height:1}
+.order-actions button:disabled{opacity:.28;cursor:not-allowed}
+.community-section{min-width:0}
+.community-token{border:1px solid #2a2e39;border-radius:8px;padding:11px 12px;margin:0 0 10px;background:#0c0f16}
+.community-section-label{font:8px 'DM Mono',monospace;letter-spacing:.09em;color:#737c8b}
+.community-token-value{font:14px 'DM Mono',monospace;color:var(--accent);margin-top:6px;overflow-wrap:anywhere}
+.community-about .community-tagline{margin-top:13px}
+.community-about .community-description{margin-bottom:15px}
+.community-links{margin-bottom:10px}
+.community-cta-wrap .community-cta{margin-bottom:10px}
+@media(max-width:700px){.section-order-head{gap:8px}.section-order-head span{font-size:7px}.section-order-row{gap:8px}.order-actions button{width:32px;height:32px}}
