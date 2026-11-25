@@ -4,7 +4,8 @@ import './style.css';
 
 const starter = { name: 'ABYXO', ticker: '$ABYXO', tagline: 'Small Creature. Deep Chaos.', description: 'A tiny force from the deepest part of the internet. Join the crew and explore the abyss.', accent: '#9af6d6', link: 'https://feel.cash', socials: '@yourcommunity', banner: 'DEEP SEA COMMUNITY', bannerImage: '', sections: { about: true, token: true, socials: true, cta: true } };
 const STORAGE_KEY = 'feel-page-draft-v1';
-function mergePage(value = {}) { return { ...starter, ...value, sections: { ...starter.sections, ...(value.sections || {}) } }; }\nfunction getSharedPage() {
+function mergePage(value = {}) { return { ...starter, ...value, sections: { ...starter.sections, ...(value.sections || {}) } }; }
+function getSharedPage() {
   try {
     const raw = new URLSearchParams(window.location.search).get('page');
     return raw ? JSON.parse(raw) : null;
