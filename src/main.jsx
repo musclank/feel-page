@@ -67,7 +67,7 @@ function App() {
   </div>;
 }
 function CommunityPage({page}) {
-  const bannerStyle = page.bannerImage && /^https:\/\//i.test(page.bannerImage) ? { backgroundImage: `linear-gradient(90deg, #101a22aa, #101a22aa), url("${page.bannerImage}")`, backgroundSize: 'cover', backgroundPosition: 'center' } : {};
+  const bannerStyle = page.bannerImage && page.bannerImage.trim().toLowerCase().startsWith('https://') ? { backgroundImage: `linear-gradient(90deg, #101a22aa, #101a22aa), url("${page.bannerImage}")`, backgroundSize: 'cover', backgroundPosition: 'center' } : {};
   const content = {
     about: page.sections?.about !== false && <section className="community-section community-about"><p className="community-tagline">{page.tagline||'Your community tagline goes here.'}</p><p className="community-description">{page.description||'Introduce your community to the world.'}</p></section>,
     token: page.sections?.token !== false && <section className="community-section community-token"><span className="community-section-label">TOKEN / PROJECT</span><div className="community-token-value">{page.ticker||'$TICKER'}</div></section>,
