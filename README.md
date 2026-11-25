@@ -7,6 +7,7 @@ A no-code mini-site builder for creators, coin communities, and internet-native 
 - Responsive creator workspace and page editor
 - Editable community name, ticker, headline, description, accent color, banner label/image URL, Feel.cash destination, and social handle
 - Configurable page sections: About, Token info, Community links, and Feel.cash CTA
+- Reorder sections with accessible up/down controls; ordering is saved in drafts and shared previews
 - Live design preview
 - Draft autosave in this browser using local storage
 - Shareable community preview URL (page content is encoded into the URL)
