@@ -53,6 +53,14 @@ function App() {
             <label>Headline<input value={page.tagline} onChange={e=>update('tagline',e.target.value)} placeholder="A short line that says it all"/></label>
             <label>About your community<textarea rows="4" value={page.description} onChange={e=>update('description',e.target.value)} placeholder="What should visitors know?"/></label>
             <div className="field-row"><label>Banner label<input value={page.banner} onChange={e=>update('banner',e.target.value)} placeholder="COMMUNITY / PROJECT"/></label><label>Banner image URL<input value={page.bannerImage||''} onChange={e=>update('bannerImage',e.target.value)} placeholder="https://... (optional)"/></label></div>
+            <div className="art-picker"><div className="art-picker-heading"><b>Curated banner art</b><span>SELECT A MOOD</span></div><div className="art-presets">
+              {[
+                ['Cosmic','https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1000&q=85'],
+                ['Earth','https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=85'],
+                ['Night sky','https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1000&q=85'],
+                ['Galaxy','https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?auto=format&fit=crop&w=1000&q=85']
+              ].map(([name,url])=><button type="button" key={name} className={'art-preset '+(page.bannerImage===url?'active':'')} onClick={()=>update('bannerImage',url)} style={{backgroundImage:'linear-gradient(0deg,#05070dbd,transparent 80%),url('+url+')'}}><span>{name}</span></button>)}
+            </div><button type="button" className="art-clear" onClick={()=>update('bannerImage','')}>Use abstract gradient instead</button></div>
             <label>Feel.cash link<input value={page.link} onChange={e=>update('link',e.target.value)} placeholder="https://feel.cash/your-coin"/></label>
             <label>Social links<input value={page.socials} onChange={e=>update('socials',e.target.value)} placeholder="X, Telegram, Discord..."/></label>
             <div className="section-controls">
