@@ -4,7 +4,7 @@ import './style.css';
 
 const starter = { name: 'ABYXO', ticker: '$ABYXO', tagline: 'Small Creature. Deep Chaos.', description: 'A tiny force from the deepest part of the internet. Join the crew and explore the abyss.', accent: '#9af6d6', link: 'https://feel.cash', socials: '@yourcommunity', banner: 'DEEP SEA COMMUNITY', bannerImage: '', sections: { about: true, token: true, socials: true, cta: true } };
 const STORAGE_KEY = 'feel-page-draft-v1';
-function getSharedPage() {
+function mergePage(value = {}) { return { ...starter, ...value, sections: { ...starter.sections, ...(value.sections || {}) } }; }\nfunction getSharedPage() {
   try {
     const raw = new URLSearchParams(window.location.search).get('page');
     return raw ? JSON.parse(raw) : null;
@@ -13,8 +13,8 @@ function getSharedPage() {
 function App() {
   const sharedPage = getSharedPage();
   const [page, setPage] = useState(() => {
-    if (sharedPage) return { ...starter, ...sharedPage };
-    try { return { ...starter, ...JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') }; } catch { return starter; }
+    if (sharedPage) return mergePage(sharedPage);
+    try { return mergePage(JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}')); } catch { return mergePage(); }
   });
   const [active, setActive] = useState('Overview');
   const [preview, setPreview] = useState(false);
